@@ -37,7 +37,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/">
               <span className="text-2xl md:text-3xl font-extrabold text-green-700 tracking-wide">
-                ShopLogo
+                Zeltho
               </span>
             </Link>
           </div>

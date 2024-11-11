@@ -1,4 +1,6 @@
 import Image from "next/image";
+import { ShoppingCart, Heart } from "lucide-react";
+import Link from "next/link";
 
 const products = [
   {
@@ -37,33 +39,45 @@ const products = [
       "https://images.tokopedia.net/img/cache/700/OJWluG/2022/3/21/535428f9-3d82-434c-8836-95c7c41e0c46.jpg",
   },
 ];
+
 const ProductGrid = () => {
   return (
-    <section id="shop" className="py-16 bg-white">
+    <section id="shop" className="py-16 bg-gray-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-bold text-gray-900">Featured Products</h2>
-        <div className="mt-8 grid grid-cols-1 sm:grid-cols-6 lg:grid-cols-4 gap-8">
+        <h2 className="text-3xl font-bold text-gray-900 mb-8">
+          Featured Products
+        </h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
           {products.map((product) => (
-            <div key={product.id} className="bg-gray-100 rounded-lg shadow-md">
-              <Image
-                src={product.imageUrl}
-                alt={product.name}
-                className="w-full h-48 object-cover rounded-t-lg"
-                width={400}
-                height={400}
-                layout="responsive"
-                objectFit="cover"
-              />
+            <Link
+              key={product.id}
+              href={`/products/${product.id}`}
+              className="bg-white rounded-lg shadow-md overflow-hidden transition-transform duration-300 hover:scale-105"
+            >
+              <div className="relative">
+                <Image
+                  src={product.imageUrl}
+                  alt={product.name}
+                  width={400}
+                  height={400}
+                  layout="responsive"
+                  objectFit="cover"
+                  className="w-full h-64 object-cover"
+                />
+              </div>
               <div className="p-4">
-                <h3 className="text-lg font-semibold text-gray-800">
+                <h3 className="text-lg font-semibold text-gray-800 mb-2">
                   {product.name}
                 </h3>
-                <p className="mt-2 text-gray-600">{product.price}</p>
-                <button className="mt-4 bg-green-600 text-white px-4 py-2 rounded-md hover:bg-green-700">
+                <p className="text-xl font-bold text-indigo-600 mb-4">
+                  {product.price}
+                </p>
+                <button className="w-full bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 transition-colors duration-200 flex items-center justify-center">
+                  <ShoppingCart className="w-5 h-5 mr-2" />
                   Add to Cart
                 </button>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>

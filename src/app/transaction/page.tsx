@@ -113,12 +113,12 @@ const TransactionPage: React.FC = () => {
                   <FaEye className="inline-block mr-2" /> View Details
                 </button>
                 {transaction.status === "Pending" && (
-                  <button className="text-green-600 hover:text-green-800 transition">
+                  <button className="text-blue-600 hover:text-blue-800 transition">
                     <FaCreditCard className="inline-block mr-2" /> Pay Now
                   </button>
                 )}
                 {transaction.status === "Shipped" && (
-                  <button className="text-green-600 hover:text-green-800 transition">
+                  <button className="text-blue-600 hover:text-blue-800 transition">
                     <FaTruck className="inline-block mr-2" /> Track Order
                   </button>
                 )}
@@ -141,9 +141,9 @@ const getStatusColor = (status: string) => {
     case "Pending":
       return "text-yellow-500";
     case "Paid":
-      return "text-green-500";
+      return "text-blue-500";
     case "Shipped":
-      return "text-green-500";
+      return "text-blue-500";
     case "Delivered":
       return "text-blue-500";
     case "Cancelled":

@@ -15,7 +15,7 @@ const Hero = () => {
           Discover the latest trends in fashion, electronics, and more!
         </p>
         <div className="mt-8">
-          <span className="bg-green-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-green-700">
+          <span className="bg-blue-600 text-white px-6 py-3 rounded-md text-lg font-medium hover:bg-blue-700">
             Shop Now
           </span>
         </div>

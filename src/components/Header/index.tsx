@@ -36,33 +36,33 @@ const Header = () => {
         <div className="flex justify-between items-center h-16 md:h-20">
           <div className="flex items-center">
             <Link href="/">
-              <span className="text-2xl md:text-3xl font-extrabold text-green-700 tracking-wide">
+              <span className="text-2xl md:text-3xl font-extrabold text-blue-700 tracking-wide">
                 Zeltho
               </span>
             </Link>
           </div>
           <div className="flex items-center space-x-4 md:space-x-6">
             <Link href="/transaction" className="hidden sm:flex">
-              <span className="flex items-center text-sm md:text-lg text-gray-800 hover:text-green-700 transition duration-300 ease-in-out">
+              <span className="flex items-center text-sm md:text-lg text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out">
                 <FaFileInvoice className="mr-2" />
                 Transaction
               </span>
             </Link>
             <Link href="/cart" className="hidden sm:flex">
-              <span className="flex items-center text-sm md:text-lg text-gray-800 hover:text-green-700 transition duration-300 ease-in-out">
+              <span className="flex items-center text-sm md:text-lg text-gray-800 hover:text-blue-700 transition duration-300 ease-in-out">
                 <FaShoppingCart className="mr-2" />
                 Cart
               </span>
             </Link>
             <button
-              className=" hidden sm:flex items-center px-3 md:px-4 py-2 bg-green-700 text-white rounded-full hover:bg-green-800 transition duration-300 ease-in-out"
+              className=" hidden sm:flex items-center px-3 md:px-4 py-2 bg-blue-700 text-white rounded-full hover:bg-blue-800 transition duration-300 ease-in-out"
               onClick={openModal}
             >
               <FaSignInAlt className="mr-2" />
               Sign In
             </button>
             <button
-              className="md:hidden text-green-700 focus:outline-none"
+              className="md:hidden text-blue-700 focus:outline-none"
               onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
             >
               {isMobileMenuOpen ? <FaTimes /> : <FaBars />}

@@ -43,6 +43,11 @@ const Header = () => {
             </Link>
           </div>
           <div className="flex items-center space-x-4 md:space-x-6">
+            <Link href="/terms-and-conditions" className="hidden sm:flex">
+              <span className="flex items-center text-sm md:text-lg text-gray-800 hover:text-amber-700 transition duration-300 ease-in-out">
+                Terms & Condition
+              </span>
+            </Link>
             <Link href="/contact" className="hidden sm:flex">
               <span className="flex items-center text-sm md:text-lg text-gray-800 hover:text-amber-700 transition duration-300 ease-in-out">
                 <Contact className="mr-2" />

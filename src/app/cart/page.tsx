@@ -13,20 +13,18 @@ interface CartItem {
 const CartPage: React.FC = () => {
   const [cartItems, setCartItems] = useState<CartItem[]>([
     {
-      id: 1,
-      name: "Product 1",
-      price: 150000,
+      id: 3,
+      name: "Majapahit dalam Sejarah: Kejayaan yang Abadi",
+      price: 97500,
+      image: "/img/cover/majapahit.png",
       quantity: 1,
-      image:
-        "https://images.tokopedia.net/img/cache/700/VqbcmM/2023/12/7/01713dfe-bff3-497b-8a23-85a4e5f622b3.jpg",
     },
     {
-      id: 2,
-      name: "Product 2",
-      price: 250000,
-      quantity: 2,
-      image:
-        "https://images.tokopedia.net/img/cache/500-square/VqbcmM/2023/3/1/b7f4d88e-2ded-4ac7-9307-5c7f5151da30.jpg",
+      id: 4,
+      name: "Takhta Para Dewa: Rahasia Olympus",
+      price: 150000,
+      image: "/img/cover/olympus.png",
+      quantity: 1,
     },
   ]);
 

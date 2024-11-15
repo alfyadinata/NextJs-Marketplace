@@ -118,16 +118,12 @@ const CartPage: React.FC = () => {
                 Rp {calculateTotal().toLocaleString()}
               </p>
             </div>
-            <div className="flex justify-between mb-2">
-              <p className="text-gray-700">Shipping</p>
-              <p className="font-bold">Rp 15,000</p>
-            </div>
             <div className="flex justify-between text-xl font-bold border-t pt-2">
               <p>Total</p>
-              <p>Rp {(calculateTotal() + 15000).toLocaleString()}</p>
+              <p>Rp {calculateTotal().toLocaleString()}</p>
             </div>
             <button className="mt-6 w-full bg-amber-700 text-white py-2 rounded-lg hover:bg-amber-800 transition">
-              Proceed to Checkout
+              Pay Now
             </button>
           </div>
         </>

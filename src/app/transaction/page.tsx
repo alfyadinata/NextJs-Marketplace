@@ -21,18 +21,16 @@ const TransactionPage: React.FC = () => {
       date: "2024-09-01",
       items: [
         {
-          name: "Product 1",
+          name: "Warisan Rurik: Dinasti Viking yang Mewarnai Sejarah Rusia",
+          price: 195000,
+          image: "/img/cover/rurik.png",
           quantity: 1,
-          price: 150000,
-          image:
-            "https://images.tokopedia.net/img/cache/700/OJWluG/2023/1/17/845a2bef-a7a3-403e-8841-e4c16f9162da.jpg",
         },
         {
-          name: "Product 2",
-          quantity: 2,
-          price: 250000,
-          image:
-            "https://images.tokopedia.net/img/cache/700/OJWluG/2022/3/21/535428f9-3d82-434c-8836-95c7c41e0c46.jpg",
+          name: "Valhalla dan Odin: Tempat Peristirahatan Prajurit Terhebat",
+          price: 176000,
+          image: "/img/cover/valhalla.png",
+          quantity: 1,
         },
       ],
       total: 650000,
@@ -43,15 +41,14 @@ const TransactionPage: React.FC = () => {
       date: "2024-08-28",
       items: [
         {
-          name: "Product 3",
+          name: "Ragnar Lothbrok: Legenda Viking yang Menggetarkan Dunia",
+          price: 134000,
+          image: "/img/cover/ragnar.png",
           quantity: 1,
-          price: 500000,
-          image:
-            "https://images.tokopedia.net/img/cache/700/OJWluG/2022/3/21/535428f9-3d82-434c-8836-95c7c41e0c46.jpg",
         },
       ],
-      total: 500000,
-      status: "Delivered",
+      total: 134000,
+      status: "Paid",
     },
   ];
 
@@ -109,16 +106,16 @@ const TransactionPage: React.FC = () => {
                 Total: Rp {transaction.total.toLocaleString()}
               </p>
               <div className="flex space-x-4">
-                <button className="text-blue-600 hover:text-blue-800 transition">
+                <button className="text-amber-600 hover:text-amber-800 transition">
                   <FaEye className="inline-block mr-2" /> View Details
                 </button>
                 {transaction.status === "Pending" && (
-                  <button className="text-blue-600 hover:text-blue-800 transition">
+                  <button className="text-amber-600 hover:text-amber-800 transition">
                     <FaCreditCard className="inline-block mr-2" /> Pay Now
                   </button>
                 )}
                 {transaction.status === "Shipped" && (
-                  <button className="text-blue-600 hover:text-blue-800 transition">
+                  <button className="text-amber-600 hover:text-amber-800 transition">
                     <FaTruck className="inline-block mr-2" /> Track Order
                   </button>
                 )}
@@ -141,11 +138,11 @@ const getStatusColor = (status: string) => {
     case "Pending":
       return "text-yellow-500";
     case "Paid":
-      return "text-blue-500";
+      return "text-amber-500";
     case "Shipped":
-      return "text-blue-500";
+      return "text-amber-500";
     case "Delivered":
-      return "text-blue-500";
+      return "text-amber-500";
     case "Cancelled":
       return "text-red-500";
     default:

@@ -85,14 +85,14 @@ const CartPage: React.FC = () => {
                   <div className="flex items-center mt-2">
                     <button
                       onClick={() => decrementQuantity(item.id)}
-                      className="text-blue-700 hover:text-blue-900 transition"
+                      className="text-amber-700 hover:text-amber-900 transition"
                     >
                       <FaMinusCircle size={20} />
                     </button>
                     <span className="mx-2">{item.quantity}</span>
                     <button
                       onClick={() => incrementQuantity(item.id)}
-                      className="text-blue-700 hover:text-blue-900 transition"
+                      className="text-amber-700 hover:text-amber-900 transition"
                     >
                       <FaPlusCircle size={20} />
                     </button>
@@ -128,7 +128,7 @@ const CartPage: React.FC = () => {
               <p>Total</p>
               <p>Rp {(calculateTotal() + 15000).toLocaleString()}</p>
             </div>
-            <button className="mt-6 w-full bg-blue-700 text-white py-2 rounded-lg hover:bg-blue-800 transition">
+            <button className="mt-6 w-full bg-amber-700 text-white py-2 rounded-lg hover:bg-amber-800 transition">
               Proceed to Checkout
             </button>
           </div>

@@ -52,7 +52,7 @@ export default function ProductDetail() {
   return (
     <div className="container mx-auto px-4 py-8 pt-[15vh]">
       {notification && (
-        <div className="fixed top-4 right-4 bg-blue-500 text-white px-4 py-2 rounded-md shadow-md">
+        <div className="fixed top-4 right-4 bg-amber-500 text-white px-4 py-2 rounded-md shadow-md">
           {notification}
         </div>
       )}
@@ -84,7 +84,7 @@ export default function ProductDetail() {
               </div>
               <span className="ml-2 text-gray-600">({product.rating})</span>
             </div>
-            <p className="text-2xl font-bold text-blue-600 mb-4">
+            <p className="text-2xl font-bold text-amber-600 mb-4">
               {product.price}
             </p>
             <p className="text-gray-600 mb-6">{product.description}</p>
@@ -130,7 +130,7 @@ export default function ProductDetail() {
             </div>
             <button
               onClick={handleAddToCart}
-              className="w-full bg-blue-600 text-white py-2 px-4 rounded hover:bg-blue-700 transition duration-200"
+              className="w-full bg-amber-600 text-white py-2 px-4 rounded hover:bg-amber-700 transition duration-200"
             >
               <ShoppingCart className="inline-block mr-2 h-5 w-5" /> Add to Cart
             </button>

@@ -1,6 +1,6 @@
 "use client";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   FaShoppingCart,
   FaSignInAlt,
@@ -23,6 +23,7 @@ const Header = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [isMobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [token, setToken] = useState("");
 
   const openModal = () => setModalOpen(true);
   const closeModal = () => setModalOpen(false);
@@ -40,7 +41,21 @@ const Header = () => {
     }, 500);
     closeModal();
   };
+  const handleLogout = () => {
+    window.localStorage.clear();
+    toast.success("Berhasil logout");
+    setTimeout(() => {
+      window.location.reload();
+    }, 300);
+  };
 
+  // This runs only on the client side
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const storedToken = window.localStorage.getItem("token");
+      setToken(storedToken || "");
+    }
+  }, []);
   return (
     <header className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,32 +91,22 @@ const Header = () => {
                 Cart
               </span>
             </Link>
-            {window?.localStorage?.getItem("token") ? (
-              <>
-                <button
-                  className=" hidden sm:flex items-center px-3 md:px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition duration-300 ease-in-out"
-                  onClick={() => {
-                    localStorage.clear();
-                    toast.success("Berhasil logout");
-                    setTimeout(() => {
-                      window.location.reload();
-                    }, 300);
-                  }}
-                >
-                  <FaSignOutAlt className="mr-2" />
-                  Logout
-                </button>
-              </>
+            {token ? (
+              <button
+                className="hidden sm:flex items-center px-3 md:px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition duration-300 ease-in-out"
+                onClick={handleLogout}
+              >
+                <FaSignOutAlt className="mr-2" />
+                Logout
+              </button>
             ) : (
-              <>
-                <button
-                  className=" hidden sm:flex items-center px-3 md:px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition duration-300 ease-in-out"
-                  onClick={openModal}
-                >
-                  <FaSignInAlt className="mr-2" />
-                  Sign In
-                </button>
-              </>
+              <button
+                className="hidden sm:flex items-center px-3 md:px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition duration-300 ease-in-out"
+                onClick={openModal} // Assuming `openModal` is defined elsewhere
+              >
+                <FaSignInAlt className="mr-2" />
+                Sign In
+              </button>
             )}
             <button
               className="md:hidden text-amber-700 focus:outline-none"

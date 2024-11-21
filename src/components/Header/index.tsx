@@ -10,11 +10,13 @@ import {
   FaFileInvoice,
   FaBars,
   FaTimes,
+  FaSignOutAlt,
 } from "react-icons/fa";
 import Modal from "../Modal";
 import Input from "../Input";
 import Button from "../Button";
 import { Contact } from "lucide-react";
+import toast from "react-hot-toast";
 
 const Header = () => {
   const [isModalOpen, setModalOpen] = useState(false);
@@ -27,7 +29,15 @@ const Header = () => {
 
   const handleLogin = () => {
     // Perform login logic here
-    console.log({ email, password });
+    if (email !== "dummy@gmail.com" && password !== "dummy") {
+      toast.error("Username atau Password salah");
+      return;
+    }
+    localStorage.setItem("token", "abc");
+    toast.success("Login Berhasil");
+    setTimeout(() => {
+      window.location.reload();
+    }, 500);
     closeModal();
   };
 
@@ -66,13 +76,33 @@ const Header = () => {
                 Cart
               </span>
             </Link>
-            <button
-              className=" hidden sm:flex items-center px-3 md:px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition duration-300 ease-in-out"
-              onClick={openModal}
-            >
-              <FaSignInAlt className="mr-2" />
-              Sign In
-            </button>
+            {window?.localStorage?.getItem("token") ? (
+              <>
+                <button
+                  className=" hidden sm:flex items-center px-3 md:px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition duration-300 ease-in-out"
+                  onClick={() => {
+                    localStorage.clear();
+                    toast.success("Berhasil logout");
+                    setTimeout(() => {
+                      window.location.reload();
+                    }, 300);
+                  }}
+                >
+                  <FaSignOutAlt className="mr-2" />
+                  Logout
+                </button>
+              </>
+            ) : (
+              <>
+                <button
+                  className=" hidden sm:flex items-center px-3 md:px-4 py-2 bg-amber-700 text-white rounded-full hover:bg-amber-800 transition duration-300 ease-in-out"
+                  onClick={openModal}
+                >
+                  <FaSignInAlt className="mr-2" />
+                  Sign In
+                </button>
+              </>
+            )}
             <button
               className="md:hidden text-amber-700 focus:outline-none"
               onClick={() => setMobileMenuOpen(!isMobileMenuOpen)}
